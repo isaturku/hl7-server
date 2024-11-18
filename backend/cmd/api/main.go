@@ -3,13 +3,12 @@ package main
 import (
 	"context"
 	"fmt"
+	"hl7-server/internal/server"
 	"log"
 	"net/http"
 	"os/signal"
 	"syscall"
 	"time"
-
-	"backend/internal/server"
 )
 
 func gracefulShutdown(apiServer *http.Server, done chan bool) {

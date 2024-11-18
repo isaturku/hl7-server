@@ -1,34 +1,44 @@
-import { createSignal } from 'solid-js'
-import solidLogo from './assets/solid.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import { getDoc, getDocIds } from './http/get-doc'
+import { createSignal, createResource, For, Show } from 'solid-js'
 
 function App() {
-  const [count, setCount] = createSignal(0)
-
+  const [docId, setDocId] = createSignal<string>();
+  const [docIds] = createResource(getDocIds)
+  const [doc] = createResource(docId, getDoc)
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} class="logo" alt="Vite logo" />
-        </a>
-        <a href="https://solidjs.com" target="_blank">
-          <img src={solidLogo} class="logo solid" alt="Solid logo" />
-        </a>
+    <main>
+      <h1>HL7 V3 Message Viewer</h1>
+
+      <div id="ui">
+        <Show when={docIds.state === "ready"} >
+          <select onchange={(e) => setDocId(e.currentTarget.value)}>
+            <For each={Object.entries(docIds()!)} >
+              {(doc) => (<option value={doc[0]}>{doc[1]}</option>)}
+            </For>
+
+          </select>
+        </Show>
+        <div id="data">
+          <div id="patient-data">
+            <h4>Patient Data</h4>
+            <p><strong>Name:</strong> <span id="name">{doc()?.querySelector("ClinicalDocument recordTarget patientRole patient name")}</span></p>
+            <p><strong>Birthdate:</strong> <span id="birthdate">{doc()?.querySelector("ClinicalDocument recordTarget patientRole patient birthtime")}</span></p>
+            <p><strong>Medication:</strong> <span id="medication"></span></p>
+          </div>
+          <div id="doctor-data">
+            <h4>Doctor Data</h4>
+            <p><strong>Name:</strong> <span id="name"></span></p>
+            <p><strong>Birthdate:</strong> <span id="birthdate"></span></p>
+            <p><strong>Medication:</strong> <span id="medication"></span></p>
+          </div>
+        </div>
       </div>
-      <h1>Vite + Solid</h1>
-      <div class="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count()}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
+      <div id="btn-container">
+        <button >Delete Medication</button>
+        <button >Update </button>
       </div>
-      <p class="read-the-docs">
-        Click on the Vite and Solid logos to learn more
-      </p>
-    </>
+    </main>
   )
 }
 

@@ -1,4 +1,4 @@
-module backend
+module hl7-server
 
 go 1.23.1
 

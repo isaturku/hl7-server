@@ -1,0 +1,1019 @@
+<?xml-stylesheet type="text/xsl" href="cda.xsl"?>ph
+<ClinicalDocument xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:hl7-org:v3"
+  xsi:schemaLocation="urn:hl7-org:v3 infrastructure/cda/CDA_ext_ihelab.xsd
+                      urn:oid:1.3.6.1.4.1.19376.1.3.2 processable/extensions/ihelab.xsd">
+  <realmCode code="USA" />
+  <typeId extension="POCD_HD000040" root="2.16.840.1.113883.1.3" />
+  <templateId root="1.3.6.1.4.1.19376.1.3.3" />
+
+  <!--This
+  is a XD-Lab required element, make sure this document ID is updated for every document, so in a
+  subsequent report this will be different from the related report, it is an equivalent to MSH-10 in
+  HL7 messages, but not identical-->
+  <id root="1.3.6.1.4.1.19376.1.3.4.201212.1250" />
+
+  <!--This
+  is a XD-Lab required element, make sure this LOINC is correct. It apears 3 times in a CDA - here
+  and at the two parts of the structured body - all 3 must match.-->
+  <code code="18727-8" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
+    displayName="Serology Studies" />
+  <title>Laboratory Report</title>
+
+  <!--This
+  is a XD-Lab required element, it is the same as OBR-22 in HL7 messages-->
+  <effectiveTime value="20100912134509-0400" />
+  <!--These
+  are XD-Lab required elements-->
+  <confidentialityCode code="N" codeSystem="2.16.840.1.113883.5.25" displayName="normal" />
+  <languageCode code="en-US" />
+
+  <!--These
+  are XD-Lab required elements, in subsequent reports this ID will remain the same, but the Version
+  ID will increment. No HL7 message equivalent-->
+  <setId extension="07SR012361" root="1.3.6.1.4.1.19376.1.3.4" />
+  <versionNumber value="1" />
+
+  <!--This
+  is a XD-Lab required element, it reflects information about the patient - similar to PID segment
+  in HL7 messages-->
+  <recordTarget typeCode="RCT">
+    <patientRole classCode="PAT">
+      <!--This
+      is a XD-Lab required element, it may repeat. If this information is not known, a Nullflavor in
+      the format of <id nullFlavor="NI"/> has to be sent. This is similar to PID-3 in HL7 messages;
+      patient ID and assigning authority-->
+      <id extension="214365" root="1.3.6.1.4.1.19376.1.3.4" />
+      <!--This
+      is a XD-Lab required element, it may repeat up to 4 times. If this information is not known, a
+      Nullflavor in the format of <addr nullFlavor="UNK"/> has to be sent. This is similar to PID-11
+      in HL7 messages-->
+      <addr use="HP">
+        <streetAddressLine>123 Lathrop Road</streetAddressLine>
+        <city>Brighton</city>
+        <state>MA</state>
+        <postalCode>01456</postalCode>
+        <country>USA</country>
+      </addr>
+      <!--This
+      is a XD-Lab required element, it may repeat. If this information is not known, a Nullflavor in
+      the format of <telecom nullFlavor="UNK"/> has to be sent. This is similar to PID-13 in HL7
+      messages-->
+      <telecom value="tel:+1-617-922-0742" />
+      <!--This
+      is a XD-Lab required element, it may repeat. If this information is not known, a Nullflavor in
+      the format of <name nullFlavor="UNK"/> has to be sent. This is similar to PID-5 in HL7
+      messages-->
+      <patient classCode="PSN">
+        <name>
+          <family>Janson</family>
+          <given>Jane</given>
+        </name>
+        <!--This
+        is a XD-Lab required element, it is similar to PID-8 in HL7 messages-->
+        <administrativeGenderCode code="F" codeSystem="2.16.840.1.113883.5.1" codeSystemName="HL7"
+          displayName="Female" />
+        <!--This
+        is a XD-Lab required element, it is similar to PID-7 in HL7 messages-->
+        <birthTime value="19920101" />
+        <!--This
+        is a XD-Lab recommended element, it is similar to PID-10 in HL7 messages - note that for lab
+        purposes, if the race is important for result interpretation there would be an additional
+        observation identifying the clinically relevant race vs the administrative race identified
+        here.-->
+        <raceCode code="2106-3" codeSystem="2.16.840.1.113883.6.238" codeSystemName="CDCREC"
+          displayName="White" />
+        <!--This
+        is a XD-Lab recommended element, it is similar to PID-22 in HL7 messages - note that for lab
+        purposes, if the ethnicity is important for result interpretation there would be an
+        additional observation identifying the clinically relevant ethnicity vs the administrative
+        ethnicity identified here.-->
+        <ethnicGroupCode code="N" codeSystem="2.16.840.1.113883.12.189" codeSystemName="HL7"
+          displayName="Not Hispanic or Latino" />
+
+        <!--GUARDIAN
+        IS NOT NEEDED IN THIS USE CASE _ IT DOES NOT YET RENDER PROERLY ON THE CDA BASE STYLESHEET,
+        ASSUMING IT IS NOT PROPERLY FORMATTED YET!!! This is a C-CDA recommended element, it may
+        repeat. It is similar to the NK1 segment in HL7 messages. This particular case did not
+        require a guardian, so it is commented out.-->
+        <!--<participant
+        typeCode="IND"> or <guardian typeCode="GUARD">-->
+        <!--This
+        is a C-CDA required element, class code for this use case of guardian MUST be set to "GUAR"
+        - otherwise can be set to "NOK" for next of kin. This is similar to NK1 segment.-->
+        <!--<associatedEntity
+            classCode="NOK">-->
+        <!--This
+        is the same as NK1-3 in HL7 messages-->
+        <!--<code
+        code="GUAR" codeSystem="2.16.840.1.113883.5.111" codeSystemName="HL7 Role Code"
+            displayName="guardian"/>-->
+        <!--This
+        is a C-CDA recommended element, it may repeat. This is similar to NK1-4 in HL7 messages-->
+        <!--<addr>
+            <streetAddressLine>12 W Main Street</streetAddressLine>
+            <city>Middletown</city>
+            <state>NY</state>
+            <postalCode>10940</postalCode>
+            <country>USA</country>
+          </addr>-->
+        <!--This
+        is a C-CDA recommended element, it may repeat. This is similar to NK1-5 in HL7 messages-->
+        <!--<telecom
+        value="tel:+1-845-555-5555"/>-->
+        <!--This
+        is a C-CDA conditionally required required element, it may NOT repeat. Either a associated
+        person OR organization MUST be present. If this information is not known, a Nullflavor in
+        the format of <name nullFlavor="UNK"/> has to be sent. This is the same as NK1-2 in HL7
+        messages-->
+        <!--<associatedPerson>
+        or <guardianPerson>
+            <name>
+              <given>Trenton</given>
+              <family>Lisa</family>
+            </name>
+          </associatedPerson>-->
+        <!--This
+        is a C-CDA conditionally required required element, it may NOT repeat. Either a associated
+        person OR organization MUST be present. If this information is not known, a Nullflavor in
+        the format of <name nullFlavor="UNK"/> has to be sent. This is the same as NK1-2 in HL7
+        messages-->
+        <!--<scopingOrganization>-->
+        <!--This
+        is a C-CDA recommended element, it may repeat. This is similar to the ID part in NK1-13 in
+        HL7 messages.-->
+        <!--<id
+        nullFlavor="NI"/>-->
+        <!--This
+        is a C-CDA recommended element, it may repeat. This is similar to NK1-13 in HL7 messages.-->
+        <!--<name>St.
+        Elsewhere Hospital</name>-->
+        <!--This
+        is a C-CDA recommended element, it may repeat. This is similar to NK1-5 in HL7 messages.-->
+        <!--<telecom
+        value="tel:+1-617-536-8789"/>-->
+        <!--This
+        is a C-CDA recommended element. If this information is not known, a Nullflavor in the format
+        of <addr nullFlavor="UNK"/> has to be sent. It is similar to NK1-4 in HL7 messages.-->
+        <!--addr>
+                <streetAddressLine>24 Massachusetts Avenue</streetAddressLine>
+                <city>Boston</city>
+                <state>MA</state>
+                <postalCode>01456</postalCode>
+                <country>USA</country>
+              </addr>
+            </scopingOrganization>
+          </associatedEntity>
+        </participant>-->
+      </patient>
+    </patientRole>
+  </recordTarget>
+
+  <!--This
+  is a XD-Lab required element, it may repeat. It does not have an equivalent in HL7 messages.-->
+  <author>
+    <!--This
+    is a XD-Lab required element. There is no true equivalent in HL7 messages, but for lab results
+    OBR-22 can be used.-->
+    <time value="20100912134509-0400" />
+    <!--This
+    is a XD-Lab required element. There is no true equivalent in HL7 messages.-->
+    <assignedAuthor>
+      <!--This
+      is a XD-Lab required element. If this information is not known, a Nullflavor in the format of
+      <id nullFlavor="NI"/> has to be sent. There is no true equivalent in HL7 messages, but for lab
+      results OBX.25 can be used.-->
+      <id extension="6" root="2.16.840.1.1138831.83.234.5" />
+      <!--This
+      is a XD-Lab required element. If this information is not known, a Nullflavor in the format of
+      <addr nullFlavor="UNK"/> has to be sent. There is no true equivalent in HL7 messages, but for
+      lab results OBX.24 can be used.-->
+      <addr>
+        <streetAddressLine>26 Hospital Avenue</streetAddressLine>
+        <city>Boston</city>
+        <state>MA</state>
+        <postalCode>01456</postalCode>
+        <country>USA</country>
+      </addr>
+      <!--This
+      is a XD-Lab required element. If this information is not known, a Nullflavor in the format of
+      <telecom nullFlavor="UNK"/> has to be sent. There is no equivalent in HL7 messages.-->
+      <telecom value="tel:+1-617-536-8090" />
+      <!--This
+      is a XD-Lab conditionally required element - if no authoring device is assigned this element
+      is required, if an authoring device is assigned, this element may also be sent. There is no
+      equivalent in HL7 messages, but for lab results OBX.25 can be used.-->
+      <assignedPerson>
+        <name>
+          <given>Knowsalot</given>
+          <family>Phil</family>
+        </name>
+      </assignedPerson>
+
+      <!--This
+      is a XD-Lab conditionally required element - if no person is assigned this element is
+      required. There is no equivalent in HL7 messages, but for lab results MSH-3 can be used.-->
+      <!--      <assignedAuthoringDevice>
+        <softwareName>St. Elsewhere Hospital LIS</softwareName>
+      </assignedAuthoringDevice>-->
+
+      <!--This
+      is a XD-Lab optional element. There is no equivalent in HL7 messages, but for lab results
+      OBX-23 can be used.-->
+      <representedOrganization>
+        <id nullFlavor="UNK" />
+        <name>St. Elsewhere Hospital Laboratory</name>
+        <!--This
+        is a XD-Lab required element. If this information is not known, a Nullflavor in the format
+        of <telecom nullFlavor="UNK"/> has to be sent. There is no equivalent in HL7 messages.-->
+        <telecom value="tel:+1-617-536-8090" />
+        <!--This
+        is a XD-Lab required element. If this information is not known, a Nullflavor in the format
+        of <addr nullFlavor="UNK"/> has to be sent. There is no true equivalent in HL7 messages, but
+        for lab results OBX.24 can be used.-->
+        <addr use="WP">
+          <streetAddressLine>26 Hospital Avenue</streetAddressLine>
+          <city>Boston</city>
+          <state>MA</state>
+          <postalCode>01456</postalCode>
+          <country>USA</country>
+        </addr>
+      </representedOrganization>
+    </assignedAuthor>
+  </author>
+  <author>
+    <!--This
+    is a XD-Lab required element. There is no true equivalent in HL7 messages, but for lab results
+    OBR-22 can be used.-->
+    <time value="20100912134509-0400" />
+    <!--This
+    is a XD-Lab required element. There is no true equivalent in HL7 messages.-->
+    <assignedAuthor>
+      <!--This
+      is a XD-Lab required element. If this information is not known, a Nullflavor in the format of
+      <id nullFlavor="NI"/> has to be sent. There is no true equivalent in HL7 messages, but for lab
+      results OBX.25 can be used.-->
+      <id extension="6" root="2.16.840.1.1138831.83.234.5" />
+      <!--This
+      is a XD-Lab required element. If this information is not known, a Nullflavor in the format of
+      <addr nullFlavor="UNK"/> has to be sent. There is no true equivalent in HL7 messages, but for
+      lab results OBX.24 can be used.-->
+      <addr>
+        <streetAddressLine>26 Hospital Avenue</streetAddressLine>
+        <city>Boston</city>
+        <state>MA</state>
+        <postalCode>01456</postalCode>
+        <country>USA</country>
+      </addr>
+      <!--This
+      is a XD-Lab required element. If this information is not known, a Nullflavor in the format of
+      <telecom nullFlavor="UNK"/> has to be sent. There is no equivalent in HL7 messages.-->
+      <telecom value="tel:+1-617-536-8090" />
+
+      <!--This
+      is a XD-Lab conditionally required element - if no person is assigned this element is
+      required, if a person is assigned, this element may also be sent. There is no equivalent in
+      HL7 messages, but for lab results MSH-3 can be used.-->
+      <assignedAuthoringDevice>
+        <softwareName>St. Elsewhere Hospital LIS</softwareName>
+
+      </assignedAuthoringDevice>
+      <!--This
+      is a XD-Lab optional element. There is no equivalent in HL7 messages, but for lab results
+      OBX-23 can be used.-->
+      <representedOrganization>
+        <id nullFlavor="UNK" />
+        <name>St. Elsewhere Hospital Laboratory</name>
+        <!--This
+        is a XD-Lab required element. If this information is not known, a Nullflavor in the format
+        of <telecom nullFlavor="UNK"/> has to be sent. There is no equivalent in HL7 messages.-->
+        <telecom value="tel:+1-617-536-8090" />
+        <!--This
+        is a XD-Lab required element. If this information is not known, a Nullflavor in the format
+        of <addr nullFlavor="UNK"/> has to be sent. There is no true equivalent in HL7 messages, but
+        for lab results OBX.24 can be used.-->
+        <addr use="WP">
+          <streetAddressLine>26 Hospital Avenue</streetAddressLine>
+          <city>Boston</city>
+          <state>MA</state>
+          <postalCode>01456</postalCode>
+          <country>USA</country>
+        </addr>
+      </representedOrganization>
+    </assignedAuthor>
+  </author>
+  <!--This
+  is a XD-Lab required element. This has no equivalent in HL7 messages.-->
+  <custodian typeCode="CST">
+    <assignedCustodian classCode="ASSIGNED">
+      <representedCustodianOrganization>
+        <!--This
+        is a XD-Lab required element. If this information is not known, a Nullflavor in the format
+        of <id nullFlavor="NI"/> has to be sent. There is no true equivalent in HL7 messages, but
+        for lab results OBX.25 can be used.-->
+        <id nullFlavor="UNK" />
+        <!--This
+        is a XD-Lab required element. There is no equivalent in HL7 messages, but for lab results
+        OBX-23 can be used.-->
+        <name>St. Elsewhere Hospital Laboratory</name>
+        <!--This
+        is a XD-Lab required element. There is no equivalent in HL7 messages.-->
+        <telecom value="tel:+1-617-536-8090" />
+        <!--This
+        is a XD-Lab required element. There is no true equivalent in HL7 messages, but for lab
+        results OBX.24 can be used.-->
+        <addr>
+          <streetAddressLine>26 Hospital Avenue</streetAddressLine>
+          <city>Boston</city>
+          <state>MA</state>
+          <postalCode>01456</postalCode>
+          <country>USA</country>
+        </addr>
+      </representedCustodianOrganization>
+    </assignedCustodian>
+  </custodian>
+
+  <!--This
+  is optional in XD-Lab - it describes who the report is being sent to, it may repeat.-->
+  <informationRecipient>
+    <templateId root="1.3.6.1.4.1.19376.1.3.3.1.4" />
+    <intendedRecipient>
+      <!--This
+      is a XD-Lab required element. If this information is not known, a Nullflavor in the format of
+      <id nullFlavor="NI"/> has to be sent. If a facility is intended to be the receiver, this can
+      be similated using MSH-6.-->
+      <id nullFlavor="UNK" />
+      <!--This
+      is a XD-Lab required element. If this information is not known, a Nullflavor in the format of
+      <addr nullFlavor="UNK"/> has to be sent. There is no true equivalent in HL7 messages.-->
+      <addr>
+        <streetAddressLine>24 Massachusetts
+          Avenue</streetAddressLine>
+        <city>Boston</city>
+        <state>MA</state>
+        <postalCode>01456</postalCode>
+      </addr>
+      <!--This
+      is a XD-Lab required element. If this information is not known, a Nullflavor in the format of
+      <telecom nullFlavor="UNK"/> has to be sent. There is no true equivalent in HL7 messages.-->
+      <telecom value="tel:+1-617-536-8789" />
+      <!--This
+      is a XD-Lab conditionally required element. If receivedOrganziation is not present, this
+      element is required, if receivedOrganziation is present, this element may also be sent. There
+      is no true equivalent in HL7 messages.-->
+      <informationRecipient>
+        <name>
+          <family>Moore</family>
+          <given>Charles</given>
+          <prefix>Dr.</prefix>
+        </name>
+      </informationRecipient>
+      <!--This
+      is a XD-Lab conditionally required element. If informationRecepient is not present, this
+      element is required, if informationRecepient is present, this element may also be sent. There
+      is no true equivalent in HL7 messages.-->
+      <receivedOrganization>
+        <!--This
+        is a XD-Lab required element. If this information is not known, a Nullflavor in the format
+        of <id nullFlavor="NI"/> has to be sent. There is no true equivalent in HL7 messages -
+        closest information in HL7 messages would be MSH-5 information.-->
+        <id nullFlavor="UNK" />
+        <!--This
+        is a XD-Lab optional element. There is no true equivalent in HL7 messages - closest
+        information in HL7 messages would be MSH-5 information.-->
+        <name>St. Elsewhere Hosptial</name>
+        <!--This
+        is a XD-Lab required element. If this information is not known, a Nullflavor in the format
+        of <telecom nullFlavor="UNK"/> has to be sent. There is no equivalent in HL7 messages.-->
+        <telecom value="tel:+1-617-536-8789" />
+        <!--This
+        is a XD-Lab required element. If this information is not known, a Nullflavor in the format
+        of <addr nullFlavor="UNK"/> has to be sent. There is no true equivalent in HL7 messages.-->
+        <addr>
+          <streetAddressLine>24 Massachusetts
+            Avenue</streetAddressLine>
+          <city>Boston</city>
+          <state>MA</state>
+          <postalCode>01456</postalCode>
+        </addr>
+      </receivedOrganization>
+    </intendedRecipient>
+  </informationRecipient>
+
+  <!--This
+  is a XD-Lab optional element. This has no equivalent in HL7 messages.-->
+  <legalAuthenticator>
+    <!--This
+    is a XD-Lab required element. It is the same as OBR-22 in HL7 messages-->
+    <time value="20100912134509-0400" />
+    <!--The
+    signature code is required and set to 'S'. No equivialent in HL7 messages.-->
+    <signatureCode code="S" />
+    <!--This
+    is a XD-Lab required element. There is no true equivalent in HL7 messages.-->
+    <assignedEntity>
+      <!--This
+      is a XD-Lab required element. If this information is not known, a Nullflavor in the format of
+      <id nullFlavor="NI"/> has to be sent.-->
+      <id extension="6" root="2.16.840.1.1138831.83.234.5" />
+      <!--This
+      is a XD-Lab required element. If this information is not known, a Nullflavor in the format of
+      <addr nullFlavor="UNK"/> has to be sent. There is no true equivalent in HL7 messages.-->
+      <addr>
+        <streetAddressLine>26 Hospital Avenue</streetAddressLine>
+        <city>Boston</city>
+        <state>MA</state>
+        <postalCode>01456</postalCode>
+        <country>USA</country>
+      </addr>
+      <!--This
+      is a XD-Lab required element. If this information is not known, a Nullflavor in the format of
+      <telecom nullFlavor="UNK"/> has to be sent. There is no equivalent in HL7 messages.-->
+      <telecom value="tel:+1-617-536-8090" />
+      <!--This
+      is a XD-Lab required element. If this information is not known, a Nullflavor in the format of
+      <addr nullFlavor="UNK"/> has to be sent. There is no true equivalent in HL7 messages.-->
+      <assignedPerson>
+        <name>
+          <given>Knowsalot</given>
+          <family>Phil</family>
+        </name>
+      </assignedPerson>
+      <!--This
+      is a XD-Lab required element. There is no true equivalent in HL7 messages.-->
+      <representedOrganization>
+        <!--This
+        is a XD-Lab required element. If this information is not known, a Nullflavor in the format
+        of <id nullFlavor="NI"/> has to be sent.-->
+        <id nullFlavor="UNK" />
+        <!--This
+        is a XD-Lab optional element. There is no equivalent in HL7 messages.-->
+        <name>St. Elsewhere Hospital Laboratory</name>
+        <!--This
+        is a XD-Lab required element. If this information is not known, a Nullflavor in the format
+        of <telecom nullFlavor="UNK"/> has to be sent. There is no equivalent in HL7 messages.-->
+        <telecom value="tel:+1-617-536-8090" />
+        <!--This
+        is a XD-Lab required element. If this information is not known, a Nullflavor in the format
+        of <addr nullFlavor="UNK"/> has to be sent. There is no true equivalent in HL7 messages.-->
+        <addr>
+          <streetAddressLine>26 Hospital Avenue</streetAddressLine>
+          <city>Boston</city>
+          <state>MA</state>
+          <postalCode>01456</postalCode>
+          <country>USA</country>
+        </addr>
+      </representedOrganization>
+    </assignedEntity>
+  </legalAuthenticator>
+
+  <!--This
+  is a XD-Lab optional element. This has no equivalent in HL7 messages. We used the same information
+  as in the legal authenticator here. It is included in addition to the legal authenticator, if the
+  results were validated.-->
+  <authenticator>
+    <templateId root="1.3.6.1.4.1.19376.1.3.3.1.5" />
+    <!--This
+    is a XD-Lab required element. It is the same as OBR-22 in HL7 messages.-->
+    <time value="20100912134509-0400" />
+    <!--The
+    signature code is required and set to 'S'. No equivialent in HL7 messages.-->
+    <signatureCode code="S" />
+    <!--This
+    is a XD-Lab required element. There is no true equivalent in HL7 messages.-->
+    <assignedEntity>
+      <!--This
+      is a XD-Lab required element. If this information is not known, a Nullflavor in the format of
+      <id nullFlavor="NI"/> has to be sent. There is no true equivalent in HL7 messages.-->
+      <id extension="6" root="2.16.840.1.1138831.83.234.5" />
+      <!--This
+      is a XD-Lab required element. If this information is not known, a Nullflavor in the format of
+      <addr nullFlavor="UNK"/> has to be sent. There is no true equivalent in HL7 messages.-->
+      <addr>
+        <streetAddressLine>26 Hospital Avenue</streetAddressLine>
+        <city>Boston</city>
+        <state>MA</state>
+        <postalCode>01456</postalCode>
+        <country>USA</country>
+      </addr>
+      <!--This
+      is a XD-Lab required element. If this information is not known, a Nullflavor in the format of
+      <telecom nullFlavor="UNK"/> has to be sent. There is no equivalent in HL7 messages.-->
+      <telecom value="tel:+1-617-536-8090" />
+      <!--This
+      is a XD-Lab required element. If this information is not known, a Nullflavor in the format of
+      <name nullFlavor="UNK"/> has to be sent. There is no equivalent in HL7 messages.-->
+      <assignedPerson>
+        <name>
+          <given>Knowsalot</given>
+          <family>Phil</family>
+        </name>
+      </assignedPerson>
+    </assignedEntity>
+  </authenticator>
+
+  <!--This
+  is a XD-Lab optional element. When it is present it HAS to have the template ID displayed here and
+  the participant typeCode is set to "REF" to identify the ordering Provider - similar to
+  OBR-16/ORC-13 in HL7 messages.-->
+  <participant typeCode="REF">
+    <templateId root="1.3.6.1.4.1.19376.1.3.3.1.6" />
+    <!--This
+    is a XD-Lab required element. Its low value is set to the specimen collection time (SPM-17.1) -
+    if know it could be time of order. Its high time is set to the report time (OBR-22).-->
+    <time>
+      <low value="20100912100000-0400" />
+      <high value="20100912134509-0400" />
+    </time>
+    <associatedEntity classCode="PROV">
+      <!--This
+      is a XD-Lab required element - it is similar ID part of OBR-16/ORC-12. If this information is
+      not known, a Nullflavor in the format of <id nullFlavor="NI"/> has to be sent. -->
+      <id root="1.3.6.1.4.1.19376.1.3.4" extension="999" />
+      <!--This
+      is a XD-Lab required element. If this information is not known, a Nullflavor in the format of
+      <addr nullFlavor="UNK"/> has to be sent. It is similar to ORC-24, but can be the same as
+      ORC-22 in some cases, in HL7 messages.-->
+      <addr>
+        <streetAddressLine>24 Massachusetts
+          Avenue</streetAddressLine>
+        <city>Boston</city>
+        <state>MA</state>
+        <postalCode>01456</postalCode>
+        <country>USA</country>
+      </addr>
+      <!--This
+      is a XD-Lab required element. If this information is not known, a Nullflavor in the format of
+      <telecom nullFlavor="UNK"/> has to be sent. It is similar to OBR-17/ORC-14 in HL7 messages.-->
+      <telecom value="tel:+1-617-536-8090" />
+      <!--This
+      is a XD-Lab required element. If this information is not known, a Nullflavor in the format of
+      <name nullFlavor="UNK"/> has to be sent. It is similar to OBR-16/ORC-12 in HL7 messages.-->
+      <associatedPerson>
+        <name>
+          <family>Moore</family>
+          <given>Charles</given>
+          <prefix>Dr.</prefix>
+          <!--<suffix></suffix>-->
+        </name>
+      </associatedPerson>
+      <!--This
+      is a XD-Lab optional element. It is similar to information in ORC-21, ORC-22 and ORC-23 in HL7
+      messages.-->
+      <scopingOrganization>
+        <!--This
+        is a XD-Lab optional element, so I could have left it out. It is similar to the ID part of
+        ORC-21 in HL7 messages.-->
+        <id nullFlavor="NI" />
+        <!--This
+        is a XD-Lab required element. It is similar to the ORC-21 in HL7 messages.-->
+        <name>St. Elsewhere Hospital</name>
+        <!--This
+        is a XD-Lab required element. If this information is not known, a Nullflavor in the format
+        of <telecom nullFlavor="UNK"/> has to be sent. It is similar to ORC-23 in HL7 messages.-->
+        <telecom value="tel:+1-617-536-8789" />
+        <!--This
+        is a XD-Lab required element. If this information is not known, a Nullflavor in the format
+        of <addr nullFlavor="UNK"/> has to be sent. It is similar to ORC-22 in HL7 messages.-->
+        <addr>
+          <streetAddressLine>24 Massachusetts Avenue</streetAddressLine>
+          <city>Boston</city>
+          <state>MA</state>
+          <postalCode>01456</postalCode>
+          <country>USA</country>
+        </addr>
+      </scopingOrganization>
+    </associatedEntity>
+  </participant>
+
+  <!--This
+  is a XD-Lab optional element. It carries information either about the Placer Group number ORC-4;
+  it may be the same as the Placer order number OBR-2.-->
+  <inFulfillmentOf>
+    <order>
+      <id root="2.16.840.1.1138831.3.4.678.9.16" extension="11MD89206" />
+    </order>
+  </inFulfillmentOf>
+
+  <!--This
+  is a XD-Lab optional element. It carries information about the main act, i.e. the result report -
+  its time AND when needed its status, so that a preliminary report canm be sent - the standard CDA
+  stylesheet cannot render a file that includes this status code entry. Will need to have a XD-lab
+  specific style sheet.-->
+  <documentationOf>
+    <serviceEvent>
+
+      <!--This
+      is a XD-lab specific element, it is ONLY used, when a preliminary report is being sent,
+      otherwise it is omitted and the report is assumed to be a final report, which is the case
+      here, hence it is commneted out below. I have not et figured out, how to get the status
+      rendered, so that I don;t need to manually add it to the human readable section, as I
+      currently do!-->
+      <!--<code
+      code="18727-8" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Serology
+      Studies"/>
+    <lab:statusCode code=”active”/>-->
+
+      <!--This
+      is a XD-Lab required element - it describes the valid time for this result report - low value
+      is specimen collection time (SPM-17), high value is time of report (OBR-22).-->
+      <effectiveTime>
+        <low value="20100912100000-0400" />
+        <high value="20100912134509-0400" />
+      </effectiveTime>
+
+      <!--This
+      is a XD-lab optional element. When Used it has to include the templateID below. When used and
+      ALL results in the document are performed at the same laboratory this section HAS to be
+      included in the header and applies to all laboratory tests and results in the following
+      sections. When results are reported from differnt laboraotries, this section HAS to be
+      included in the structured body of the document at the appropriate level they apply to.-->
+      <performer typeCode="PRF">
+        <templateId root="1.3.6.1.4.1.19376.1.3.3.1.7" />
+        <!--This
+        is a XD-Lab required element - it describes the valid time for this result report - low
+        value is specimen collection time (SPM-17), high value is time of report (OBR-22).-->
+        <time>
+          <low value="20100912100000-0400" />
+          <high value="20100912134509-0400" />
+        </time>
+        <!--This
+        is a XD-Lab required element. If this information is not known, a Nullflavor in the format
+        of <id nullFlavor="NI"/> has to be sent. It is similar to the id part of OBX-25 in HL7
+        messages.-->
+        <assignedEntity>
+          <id extension="6" root="2.16.840.1.1138831.83.234.5" />
+          <!--This
+          is a XD-Lab required element. If this information is not known, a Nullflavor in the format
+          of <addr nullFlavor="UNK"/> has to be sent. It is similar to OBX-24 in HL7 messages.-->
+          <addr>
+            <streetAddressLine>26 Hospital Avenue</streetAddressLine>
+            <city>Boston</city>
+            <state>MA</state>
+            <postalCode>01456</postalCode>
+            <country>USA</country>
+          </addr>
+          <!--This
+          is a XD-Lab required element. If this information is not known, a Nullflavor in the format
+          of <telecom nullFlavor="UNK"/> has to be sent. It has no equivalent in HL7 messages.-->
+          <telecom value="tel: 845-344-4594" />
+          <!--This
+          is a XD-Lab required element. If this information is not known, a Nullflavor in the format
+          of <name nullFlavor="UNK"/> has to be sent. It is similar to OBX-25 in HL7 messages.-->
+          <assignedPerson>
+            <name>
+              <given>Knowsalot</given>
+              <family>Phil</family>
+            </name>
+          </assignedPerson>
+          <!--This
+          is a XD-Lab optional element.-->
+          <representedOrganization>
+            <!--This
+            is a XD-Lab required element. If this information is not known, a Nullflavor in the
+            format of <id nullFlavor="NI"/> has to be sent. It is similar to the id part of OBX-23
+            in HL7 messages.-->
+            <id nullFlavor="UNK" />
+            <!--This
+            is a XD-Lab required element. If this information is not known, a Nullflavor in the
+            format of <name nullFlavor="UNK"/> has to be sent. It is similar to OBX-23 in HL7
+            messages.-->
+            <name>St. Elsewhere Hospital Laboratory</name>
+            <!--This
+            is a XD-Lab required element. If this information is not known, a Nullflavor in the
+            format of <telecom nullFlavor="UNK"/> has to be sent. It has no equivalent in HL7
+            messages.-->
+            <telecom value="tel: 845-344-4594" />
+            <!--This
+            is a XD-Lab required element. If this information is not known, a Nullflavor in the
+            format of <addr nullFlavor="UNK"/> has to be sent. It is similar to OBX-24 in HL7
+            messages.-->
+            <addr>
+              <streetAddressLine>26 Hospital Avenue</streetAddressLine>
+              <city>Boston</city>
+              <state>MA</state>
+              <postalCode>01456</postalCode>
+              <country>USA</country>
+            </addr>
+          </representedOrganization>
+        </assignedEntity>
+      </performer>
+    </serviceEvent>
+  </documentationOf>
+  <!--Begin
+  result section-->
+  <component typeCode="COMP">
+    <structuredBody classCode="DOCBODY" moodCode="EVN">
+      <component typeCode="COMP">
+        <section classCode="DOCSECT">
+          <templateId root="1.3.6.1.4.1.19376.1.3.3.2.1" />
+
+          <!--This
+          is a XD-Lab required element, make sure this LOINC is correct. It appears 3 times in a CDA
+          - in the header, here and at second part of the structured body - all 3 must match.-->
+          <code code="18727-8" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
+            displayName="Serology Studies" />
+          <!--This
+          is the human readable part. In a derived template all of this text should be able to be
+          reconstructed form the structered body entries - this is ultimately the intent in this
+          example, however at this time that is NOT the case.-->
+          <title>Laboratory Report</title>
+          <text>
+            <paragraph styleCode="Bold">SPECIMEN</paragraph>
+            <br />
+            <list>
+              <item>Lab order type: Serology Studies</item>
+              <item>StatusCode: Final </item>
+            </list>
+            <br />
+            <paragraph styleCode="Bold">Specimen Procedure</paragraph>
+            <br />
+            <list>
+              <item>Collection Time: 09/12/2010 10:00 AM EDT</item>
+              <item>Received Time: 09/12/2010 10:25 AM EDT</item>
+              <item>Specimen Type: Serum</item>
+            </list>
+            <br />
+            <paragraph styleCode="Bold">Laboratory Result</paragraph>
+            <br />
+            <table ID="labreport_1">
+              <colgroup>
+                <col width="25%" />
+                <col width="15%" />
+                <col width="10%" />
+                <col width="10%" />
+                <col width="10%" />
+                <col width="15%" />
+                <col width="15%" />
+              </colgroup>
+              <thead>
+                <tr>
+                  <th>Ordered Test</th>
+                  <th>Performed Test</th>
+                  <!--<th>Method</th>-->
+                  <!--<th>Date/Time</th>-->
+                  <th>Status</th>
+                  <th>Value</th>
+                  <th>Interpretation</th>
+                  <th>Reference Range</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td ID="test1">Staphylococcus aureus enterotoxin B Ab [Presence] in Serum</td>
+                  <td ID="test2">Staphylococcus aureus enterotoxin B Ab [Presence] in Serum</td>
+                  <!--<td></td>-->
+                  <!--<td></td>-->
+                  <td>completed</td>
+                  <td>Positive</td>
+                  <td>Abnormal</td>
+                  <td />
+                </tr>
+              </tbody>
+            </table>
+          </text>
+          <!--This
+          is the beginining of the structured body part. the entry type indicates, that the huma
+          readable text should be derivable from the structured entry.-->
+          <entry typeCode="DRIV">
+            <templateId root="1.3.6.1.4.1.19376.1.3.1" />
+            <act classCode="ACT" moodCode="EVN">
+
+              <!--This
+              is a XD-Lab required element, make sure this LOINC is correct. It appears 3 times in a
+              CDA - in the header, in the human readable part of the structured body and here - all
+              3 must match.-->
+              <code code="18727-8" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
+                displayName="Serology Studies" />
+
+              <!--This
+              is a XD-Lab required element - it can ONLY have these values: "active" - which is
+              similar to OBR-25 being "P" for preliminary, "aborted", which would be expressed as a
+              canceled test in OBR-25 being "X", or "completed", which is simliar to OBR-25 being
+              "F" for final.-->
+              <statusCode code="completed" />
+              <entryRelationship typeCode="COMP">
+                <!--This
+                is a XD-Lab required element - it describes the specimen collection and MUST have
+                the procedure code "PROC", the moodCode "EVN" and the templateID below. It also MUST
+                use the LOINC below. It may be used here OR within a battery organizer.-->
+                <procedure classCode="PROC" moodCode="EVN">
+                  <templateId root="1.3.6.1.4.1.19376.1.3.1.2" />
+                  <code code="33882-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
+                    displayName="Specimen Collection" />
+                  <!--This
+                  is a XD-Lab required element - it is the specimen collection time - similar to
+                  SPM-17 in HL7 messages. When the speicmen is collected over a period of time, the
+                  time datatype shall be identified as duration <time xsi:type="IVL_TS"></time>,
+                  where the low time = SPM-17.1 and the high time = SPM-17.2 in HL7 messages.-->
+                  <effectiveTime value="20100912100000-0400" />
+                  <!--This
+                  is a XD-Lab required element - it MUST be present just as shown below.-->
+                  <participant typeCode="PRD">
+                    <participantRole classCode="SPEC">
+                      <!--This
+                      is a XD-Lab required element - it is the specimen identifier, but it may not
+                      repeat, so no rule if using the placer or the filler ID here. If this
+                      information is not known, a Nullflavor in the format of <id nullFlavor="NI"/>
+                      has to be sent. In HL7 messages the SPM-2 field carries both.-->
+                      <id extension="11MD89206" root="1.3.6.1.4.1.19376.1.3.4" />
+                      <!--This
+                      is a XD-Lab required element - it is similar to SPM-4 in HL7 messages and
+                      describes the specimen type.-->
+                      <playingEntity classCode="ENT">
+                        <code code="119364003" codeSystem="2.16.840.1.113883.6.96"
+                          codeSystemName="SNOMED-CT" displayName="Serum" />
+                        <!-- How would we add specimen source site (possibly with nodifiers for
+                        topographical location of right or left) and collection method here, if
+                        needed? - Remember I am just learninng CDA in general, so bear with me. The
+                        example here is from a different use case for sake of discussion copied
+                        here! Will be taken out of this version!
+                Can we use <code code="31208-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
+                        displayName="Specimen source [Identifier] of Unspecified specimen"/>
+                        <value code="Drawn from SNOMED CT bodysite hierarchy for patients"
+                        codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED-CT"
+                        displayName="related preferred name form SNOMED CT"/>
+                        <code code="53903-1" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
+                        displayName="Collection method [Type] of Specimen"/>
+                        <value code="Drawn from SNOMED CT procedure hierarchy" codeSystem="2.16.840.1.113883.6.96"
+                        codeSystemName="SNOMED-CT" displayName="related preferred name form SNOMED
+                        CT"/>
+                        or <procedure classCode="PROC" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.15.3.2"/>
+                  <code code="313273004" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMEDCT"
+                        displayName="Pertussis swab"/>
+                  <effectiveTime value="20111215103000-0500"/>
+                  <targetSiteCode xsi:type="CE" code="71836000" codeSystem="2.16.840.1.113883.6.96"
+                        codeSystemName="SNOMEDCT" displayName="Nasopharyngeal structure"/>-->
+                      </playingEntity>
+                    </participantRole>
+                  </participant>
+                  <!--This
+                  is a XD-Lab required element - it describes the date/time the specimen was
+                  recevied in the lab and MUST have the classCode "ACT", the moodCode "EVN" and the
+                  templateID below. It also MUST use the IHEActCode below.it is similar to SPM-18 in
+                  HL7 messages.-->
+                  <entryRelationship typeCode="COMP">
+                    <act classCode="ACT" moodCode="EVN">
+                      <templateId root="1.3.6.1.4.1.19376.1.3.1.3" />
+                      <code code="SPRECEIVE" codeSystem="1.3.5.1.4.1.19376.1.5.3.2"
+                        codeSystemName="IHEActCode" displayName="Receive Time" />
+                      <effectiveTime value="20100912102500-0400" />
+                    </act>
+                  </entryRelationship>
+                </procedure>
+              </entryRelationship>
+              <!--This
+              a required element in XD-Lab, when the report is sent to a public health agency. It
+              MUST be formated exactly as described below. I think discussion on how best to use
+              this section is warranted, as the laboratorians may diagnose the presence of a
+              microorganism, but they usually do NOT make a diagnosis on the patient.. This
+              information does not yet show up in the narrative text block above.-->
+              <entryRelationship typeCode="COMP">
+                <organizer classCode="CLUSTER" moodCode="EVN">
+                  <templateId root="1.3.6.1.4.1.19376.1.3.1.1" />
+                  <statusCode code="completed" />
+                  <component typeCode="COMP">
+                    <observation classCode="COND" moodCode="EVN">
+                      <templateId root="1.3.6.1.4.1.19376.1.3.1.1.1" />
+                      <code code="170516003" codeSystem="2.16.840.1.113883.6.96"
+                        codeSystemName="SNOMED-CT" displayName="Notification of Disease">
+                        <qualifier>
+                          <name code="105590001" codeSystem="2.16.840.1.113883.6.96"
+                            codeSystemName="SNOMED-CT" displayName="Substance" />
+                          <value code="116154003" codeSystem="2.16.840.1.113883.6.96"
+                            codeSystemName="SNOMED-CT" displayName=" Patient" />
+                        </qualifier>
+                      </code>
+                      <statusCode code="completed" />
+                      <!--Personally
+                      I think this information is not always available in the LIMS in the required
+                      format, so in this example it is populated using the HL7 null flavor for the
+                      actual dataelement of interest. For nominal tests, where an organism has been
+                      identified that is what should be sent instead of the HL7 null flavor.-->
+                      <value xsi:type="CE" code="NAV" codeSystem="2.16.840.1.113883.5.353"
+                        codeSystemName="HL7" displayName="Not available" />
+                    </observation>
+                  </component>
+                </organizer>
+              </entryRelationship>
+
+              <!--This
+              is the first test. In order to match the HL7 message structure and allow the reporting
+              of the test ordered AND the test performed we suggest to always use the battery
+              organizer. This will also allow the transmission of the placer order number for each
+              ordered test (OBR-2 in HL7 messages).The battert organizaer MUST be formatted as shown
+              below.-->
+              <entryRelationship typeCode="COMP">
+                <organizer classCode="BATTERY" moodCode="EVN">
+                  <templateId root="1.3.6.1.4.1.19376.1.3.1.4" />
+                  <!--This
+                  is an optional XD-lab element. It should be populated with the placer order number
+                  = OBR-2 in HL7 messages. It was not part of the story in this example, so I used
+                  the nullflavor, becasue I wanted to show where to place it. -->
+                  <id nullFlavor="NI" />
+                  <!--This
+                  is a XD-Lab required element - it describes the ordered test, similar to OBR-4 in
+                  HL7 messages. In a battery this could bundle several individual tests together.
+                  XD-Lab requires the use of appropriate vocabulary - in the US that is LOINC here,
+                  elsewhere it may be SNOMED CT or other national coding systems.  When a standard is
+                  not available for an ordered test, use the following construct, copied form a
+                  different use case, to transmit a local code. 
+                    <code nullFlavor="UNK">
+                    <translation code="AHEPR"
+                      displayName="Acute Hepatititis Panel with Reflex"
+                      codeSystem="2.16.840.1.113883.3.72.5.21"
+                      codeSystemName="Regional Example Code System"/>
+                     </code>
+                     This may need some more thought, as in the US the local code is the required code, not a LOINC.-->
+                  <code code="23934-3" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
+                    displayName="Staphylococcus aureus enterotoxin B Ab [Presence] in Serum">
+                    <!--In
+                    order to create the derivable entry above the value here has to use the '#'and
+                    the text identifier used in the narrative block to tie these together.-->
+                    <originalText>
+                      <reference value="#test1" />
+                    </originalText>
+                  </code>
+                  <!--This
+                  is a XD-Lab required element - it can have the status of "completed" similar to
+                  'F' in OBR-25 or "aborted", when not all results are reported. Would that be
+                  similar to 'P' in OBR-25? If not, how would that look? why coudl it not be
+                  "active"?-->
+                  <statusCode code="completed" />
+                  <!--This
+                  is the clinically relevant time, which for all specimen related observations is
+                  the specimen collection time (SPM-17).-->
+                  <effectiveTime value="20100912100000-0400" />
+                  <!--This
+                  is the first performed test and its result. It is similar to the first OBX segment
+                  under the related battery's OBR - this section can repeat as many times as
+                  required for the battery it belongs to and MUST be formated as shown below.-->
+                  <component typeCode="COMP">
+                    <observation classCode="OBS" moodCode="EVN">
+                      <templateId root="1.3.6.1.4.1.19376.1.3.1.6" />
+                      <!--This
+                      is a XD-Lab required element, and in HL7 message v2.6 or higher it matches
+                      OBX-21. If this information is not known, a Nullflavor in the format of <id
+                      nullFlavor="NI"/> has to be sent. -->
+                      <id nullFlavor="NI" />
+                      <!--This
+                      is a XD-Lab required element - it describes the performed test, similar to
+                      OBX-3 in HL7 messages. XD-Lab requires the use of appropriate vocabulary - in
+                      the US that is LOINC here, elsewhere it may be SNOMED CT or other national
+                      coding systems. When a standard code is not available for an ordered test, use
+                      the following construct, copied form a different use case, to transmit a local
+                      code. 
+                      <code nullFlavor="UNK">
+                        <translation code="AHEPR"
+                          displayName="Acute Hepatititis Panel with Reflex"
+                          codeSystem="2.16.840.1.113883.3.72.5.21"
+                          codeSystemName="Regional Example Code System"/>
+                      </code>-->
+                      <code code="43913-3" codeSystem="2.16.840.1.113883.6.1"
+                        displayName="Bordetella pertussis DNA [Presence] in Nasopharyngeal specimen by Probe and target amplification method">
+                        <originalText>
+                          <reference value="#test1" />
+                        </originalText>
+                      </code>
+                      <!-- This is the status of the result - it can have the status of "completed"
+                      similar to 'F' in OBX-11 or "aborted", similar to 'X' in OBX-11 in HL7
+                      messages. -->
+                      <statusCode code="completed" />
+                      <!--This
+                      is the clinically relevant time, which for all specimen related observations
+                      is the specimen collection time (SPM-17). How would you send the date and time
+                      of analysis (OBX-17) in a XD-lab document?-->
+                      <effectiveTime value="20100912100000-0400" />
+                      <!--This
+                      is a XD-Lab conditionally required element. It MUST be sent when the
+                      statusCode is "completed" it MUST be absent, when the statusCode "aborted". It
+                      represents the result - the xsi:type is similar to OBX-2 and sets the
+                      expectation for what data format to expect in the result value. In this
+                      example it is a coded element. Numeric results will include the units in coded
+                      format, which should be drawn from an appropriate standard like UCUM and use
+                      the datatype "PQ". Other datatypes are described in some of the other
+                      examples.-->
+                      <value xsi:type="CE" code="10828004" codeSystem="2.16.840.1.113883.6.96"
+                        displayName="Positive (qualifier value)" />
+                      <!--This
+                      is a XD-Lab conditionally required element. It MUST be sent when the
+                      statusCode is "completed" it MUST be absent, when the statusCode "aborted". It
+                      represents the test interpretation, MUST be in coded format and use
+                      ObservationInterpretation vocabulary.-->
+                      <interpretationCode code="A" codeSystem="2.16.840.1.113883.5.83" />
+                      <!--For
+                      numeric results the reference range for normal results should be sent here,
+                      with units and optionally additional criteria, like age or sex, when
+                      clinincally relevant to the interpretation. an example of a reference range is
+                      part of a differnt template. ONLY 1 reference range is allowed.-->
+                    </observation>
+                  </component>
+                </organizer>
+              </entryRelationship>
+            </act>
+          </entry>
+        </section>
+      </component>
+    </structuredBody>
+  </component>
+</ClinicalDocument>
