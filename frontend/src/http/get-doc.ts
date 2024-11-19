@@ -1,7 +1,8 @@
 export const getDoc = async (id: string) => {
   const data = await (await fetch(`http://localhost:8080/docs/${id}`)).text();
   const parser = new DOMParser();
-  return parser.parseFromString(data, "application/xml");
+  const doc = parser.parseFromString(data, "application/xml");
+  return doc;
 }
 
 export const getDocIds = async () => {
