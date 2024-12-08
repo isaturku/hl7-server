@@ -20,3 +20,7 @@ main {
   flex-direction: row;
   gap: 3rem;
 }
+
+.hidden {
+  display: none;
+}
