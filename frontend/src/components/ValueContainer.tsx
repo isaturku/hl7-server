@@ -14,14 +14,14 @@ export const ValueContainer: ParentComponent<Props> = (props) => {
   return (
     <p>
       <strong>{props.label}:</strong>
-      <span id="name" ondblclick={() => setShowInput(true)} classList={{ "hidden": !showInput() }}>
+      <span id="name" ondblclick={() => setShowInput(true)} classList={{ "hidden": showInput() }}>
         {props.children}
       </span>
       <input
         value={props.children?.toString()}
         onblur={(e) => handleInputClose(e.currentTarget.value)}
         onkeydown={(e) => e.key === "Enter" ? handleInputClose(e.currentTarget.value) : null}
-        classList={{ "hidden": showInput() }} />
+        classList={{ "hidden": !showInput() }} />
     </p>
   );
 };

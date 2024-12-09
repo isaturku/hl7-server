@@ -10,14 +10,14 @@ export const patientDataMappings = {
 };
 
 export const doctorDataMapping = {
-  patientName: {
-    tag: "ClinicalDocument recordTarget patientRole patient name",
+  name: {
+    tag: "ClinicalDocument associatedEntity  name",
   },
-  patientBirthDate: {
-    tag: "ClinicalDocument recordTarget patientRole patient birthTime",
+  tel: {
+    tag: "ClinicalDocument associatedEntity telecom",
     attribute: "value",
   },
-  patientAddress: { tag: "ClinicalDocument recordTarget patientRole addr" },
+  address: { tag: "ClinicalDocument associatedEntity addr" },
 };
 
 export const medicationDataMapping = {

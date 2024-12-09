@@ -8,7 +8,7 @@ import {
   createEffect,
 } from "solid-js";
 import { getValueFromDocAndMapping } from "./utils";
-import { medicationDataMapping, patientDataMappings } from "./constants";
+import { doctorDataMapping, medicationDataMapping, patientDataMappings } from "./constants";
 import { ValueContainer } from "./components/ValueContainer";
 
 function App() {
@@ -46,7 +46,7 @@ function App() {
                   )}
                 </span>
               </p>
-              <ValueContainer label="Name" onChange={() => { }}>{getValueFromDocAndMapping(doc()!, patientDataMappings.patientName)}</ValueContainer>
+              {/*<ValueContainer label="Name" onChange={() => { }}>{getValueFromDocAndMapping(doc()!, patientDataMappings.patientName)}</ValueContainer>*/}
               <p>
                 <strong>Birthdate:</strong>{" "}
                 <span id="birthdate">
@@ -73,7 +73,7 @@ function App() {
                 <span id="name">
                   {getValueFromDocAndMapping(
                     doc()!,
-                    patientDataMappings.patientName,
+                    doctorDataMapping.name,
                   )}
                 </span>
               </p>
@@ -82,7 +82,7 @@ function App() {
                 <span id="birthdate">
                   {getValueFromDocAndMapping(
                     doc()!,
-                    patientDataMappings.patientBirthDate,
+                    doctorDataMapping.tel,
                   )}
                 </span>
               </p>
@@ -91,7 +91,7 @@ function App() {
                 <span id="address">
                   {getValueFromDocAndMapping(
                     doc()!,
-                    patientDataMappings.patientAddress,
+                    doctorDataMapping.address,
                   )}
                 </span>
               </p>
