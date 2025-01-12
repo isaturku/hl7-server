@@ -1,20 +1,57 @@
 import "./App.css";
-import { getDocIds, getDoc, deleteDoc } from "./http";
+import { getDocIds, getDoc, deleteDoc, updateDoc } from "./http";
+import { doc as inMemoryDoc, setDoc } from "./state"
 import {
   createSignal,
   createResource,
   For,
-  Show,
   createEffect,
+  Show,
 } from "solid-js";
-import { getValueFromDocAndMapping } from "./utils";
-import { doctorDataMapping, medicationDataMapping, patientDataMappings } from "./constants";
 import { ValueContainer } from "./components/ValueContainer";
+import { updateValueFromDocAndMapping } from "./utils";
+import { doctorDataMapping, medicationDataMapping, patientDataMappings } from "./constants";
 
 function App() {
   const [docId, setDocId] = createSignal<string>();
   const [docIds, { refetch }] = createResource(getDocIds);
-  const [doc, { mutate }] = createResource(docId, getDoc);
+  const [doc, { mutate, refetch: refetchDoc }] = createResource(docId, getDoc);
+  const updateDocuemnt = () => {
+    setDoc((prev) => {
+      updateValueFromDocAndMapping(prev!, patientDataMappings.patientName, doc()!.patientData.Name!)
+      updateValueFromDocAndMapping(
+        prev!,
+        patientDataMappings.patientBirthDate,
+        doc()!.patientData.Birthdate!)
+      updateValueFromDocAndMapping(
+        prev!,
+        patientDataMappings.patientAddress,
+        doc()!.patientData.Address!)
+      updateValueFromDocAndMapping(
+        prev!,
+        doctorDataMapping.name,
+        doc()!.doctorData.Name!)
+      updateValueFromDocAndMapping(
+        prev!,
+        doctorDataMapping.tel,
+        doc()!.doctorData.Tel!)
+      updateValueFromDocAndMapping(
+        prev!,
+        doctorDataMapping.address,
+        doc()!.doctorData.Address!)
+      updateValueFromDocAndMapping(
+        prev!,
+        medicationDataMapping.specimenType,
+        doc()!.reportData.Procedure!)
+      updateValueFromDocAndMapping(
+        prev!,
+        medicationDataMapping.specimenType,
+        doc()!.reportData.Procedure!)
+      return prev;
+    })
+    updateDoc(docId()!, inMemoryDoc()!)
+    refetchDoc()
+  }
   createEffect(() => {
     if (docIds.state === "ready") {
       setDocId(Object.keys(docIds())[0]);
@@ -37,74 +74,60 @@ function App() {
           <div id="data">
             <div id="patient-data">
               <h4>Patient Data</h4>
-              <p>
-                <strong>Name:</strong>{" "}
-                <span id="name">
-                  {getValueFromDocAndMapping(
-                    doc()!,
-                    patientDataMappings.patientName,
-                  )}
-                </span>
-              </p>
-              {/*<ValueContainer label="Name" onChange={() => { }}>{getValueFromDocAndMapping(doc()!, patientDataMappings.patientName)}</ValueContainer>*/}
-              <p>
-                <strong>Birthdate:</strong>{" "}
-                <span id="birthdate">
-                  {getValueFromDocAndMapping(
-                    doc()!,
-                    patientDataMappings.patientBirthDate,
-                  )}
-                </span>
-              </p>
-              <p>
-                <strong>Address:</strong>{" "}
-                <span id="address">
-                  {getValueFromDocAndMapping(
-                    doc()!,
-                    patientDataMappings.patientAddress,
-                  )}
-                </span>
-              </p>
+              <For each={Object.entries(doc()!.patientData)}>
+                {(data) => (
+                  <ValueContainer
+                    label={data[0]}
+                    onChange={(val) => {
+                      mutate((a) => {
+                        Object.defineProperty(a!.patientData, data[0], { value: val })
+                        return a
+                      })
+                    }}
+                  >
+                    {data[1]}
+                  </ValueContainer>
+                )}
+              </For>
             </div>
             <div id="doctor-data">
               <h4>Doctor Data</h4>
-              <p>
-                <strong>Name:</strong>
-                <span id="name">
-                  {getValueFromDocAndMapping(
-                    doc()!,
-                    doctorDataMapping.name,
-                  )}
-                </span>
-              </p>
-              <p>
-                <strong>Birthdate:</strong>{" "}
-                <span id="birthdate">
-                  {getValueFromDocAndMapping(
-                    doc()!,
-                    doctorDataMapping.tel,
-                  )}
-                </span>
-              </p>
-              <p>
-                <strong>Address:</strong>{" "}
-                <span id="address">
-                  {getValueFromDocAndMapping(
-                    doc()!,
-                    doctorDataMapping.address,
-                  )}
-                </span>
-              </p>
+              <For each={Object.entries(doc()!.doctorData)}>
+                {(data) => (
+                  <ValueContainer
+                    label={data[0]}
+                    onChange={(val) => {
+                      mutate((a) => {
+                        Object.defineProperty(a!.doctorData, data[0], { value: val })
+                        return a
+                      })
+                    }}
+                  >
+                    {data[1]}
+                  </ValueContainer>
+                )}
+              </For>
+
+
+
             </div>
           </div>
           <div id="lab-data">
-            <div>
-              {getValueFromDocAndMapping(
-                doc()!,
-                medicationDataMapping.procedure,
+            <For each={Object.entries(doc()!.reportData)}>
+              {(data) => (
+                <ValueContainer
+                  label={data[0]}
+                  onChange={(val) => {
+                    mutate((a) => {
+                      Object.defineProperty(a!.patientData, data[0], { value: val })
+                      return a
+                    })
+                  }}
+                >
+                  {data[1]}
+                </ValueContainer>
               )}
-            </div>
-          </div>
+            </For></div>
         </Show>
       </div>
       <div id="btn-container">
@@ -116,7 +139,7 @@ function App() {
         >
           Delete{" "}
         </button>
-        <button>Update </button>
+        <button onclick={updateDocuemnt}>Update </button>
       </div>
     </main>
   );

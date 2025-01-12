@@ -21,8 +21,12 @@ export const doctorDataMapping = {
 };
 
 export const medicationDataMapping = {
-  procedure: {
+  specimenType: {
     tag: "ClinicalDocument component structuredBody component section entry act entryRelationship procedure participant participantRole playingEntity code",
     attribute: "displayName",
   },
+  result: {
+    tag: "ClinicalDocument component structuredBody component section entry act entryRelationship organizer specimen specimenRole specimenPlayingEntity code",
+    attribute: "displayName",
+  }
 };

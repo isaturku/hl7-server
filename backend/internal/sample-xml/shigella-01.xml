@@ -1,52 +1,43 @@
-<?xml-stylesheet type="text/xsl" href="cda.xsl"?>
-<ClinicalDocument xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xmlns="urn:hl7-org:v3"
-  xmlns:lab="urn:oid:1.3.6.1.4.1.19376.1.3.2"
-  xsi:schemaLocation="urn:hl7-org:v3 infrastructure/cda/CDA_ext_ihelab.xsd
-                      urn:oid:1.3.6.1.4.1.19376.1.3.2 processable/extensions/ihelab.xsd">
-  <realmCode code="USA" />
-  <typeId extension="POCD_HD000040" root="2.16.840.1.113883.1.3" />
-  <templateId root="1.3.6.1.4.1.19376.1.3.3" />
-  <id root="1.3.6.1.4.1.19376.1.3.4.201212.1247" />
-  <code code="18725-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
-    displayName="MICROBIOLOGY STUDIES" />
+<ClinicalDocument xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:hl7-org:v3" xmlns:lab="urn:oid:1.3.6.1.4.1.19376.1.3.2" xsi:schemaLocation="urn:hl7-org:v3 infrastructure/cda/CDA_ext_ihelab.xsd                       urn:oid:1.3.6.1.4.1.19376.1.3.2 processable/extensions/ihelab.xsd">
+  <realmCode code="USA"/>
+  <typeId extension="POCD_HD000040" root="2.16.840.1.113883.1.3"/>
+  <templateId root="1.3.6.1.4.1.19376.1.3.3"/>
+  <id root="1.3.6.1.4.1.19376.1.3.4.201212.1247"/>
+  <code code="18725-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="MICROBIOLOGY STUDIES"/>
   <title>Laboratory Report</title>
-  <effectiveTime value="20110531130655-0500" />
-  <confidentialityCode code="N" codeSystem="2.16.840.1.113883.5.25" displayName="normal" />
-  <languageCode code="en-US" />
-  <setId extension="07SR012356" root="1.3.6.1.4.1.19376.1.3.4" />
-  <versionNumber value="1" />
+  <effectiveTime value="20110531130655-0500"/>
+  <confidentialityCode code="N" codeSystem="2.16.840.1.113883.5.25" displayName="normal"/>
+  <languageCode code="en-US"/>
+  <setId extension="07SR012356" root="1.3.6.1.4.1.19376.1.3.4"/>
+  <versionNumber value="1"/>
   <recordTarget typeCode="RCT">
     <patientRole classCode="PAT">
-      <id extension="PATID1234" root="2.16.840.1.113883.3.72.5.24" />
+      <id extension="PATID1234" root="2.16.840.1.113883.3.72.5.24"/>
       <addr>
-        <streetAddressLine>1955 Seminole Lane</streetAddressLine>
-        <city>Oveido</city>
-        <state>FL</state>
-        <postalCode>32765</postalCode>
-        <country>USA</country>
+        1955 Seminole Lane
+        Oveido
+        FL
+        32765
+        USA
       </addr>
       <telecom value="tel:1-407-2351234">
       </telecom>
       <patient classCode="PSN">
         <name>
-          <family>Jones</family>
-          <given>William</given>
+          Jones
+          William
         </name>
-        <administrativeGenderCode code="M" codeSystem="2.16.840.1.113883.5.1" codeSystemName="HL7"
-          displayName="Male" />
-        <birthTime value="19461115" />
-        <raceCode code="2106-3" codeSystem="2.16.840.1.113883.6.238" codeSystemName="CDCREC"
-          displayName="White" />
-        <ethnicGroupCode code="N" codeSystem="2.16.840.1.113883.12.189" codeSystemName="HL7"
-          displayName="Not Hispanic or Latino" />
+        <administrativeGenderCode code="M" codeSystem="2.16.840.1.113883.5.1" codeSystemName="HL7" displayName="Male"/>
+        <birthTime value="19461115"/>
+        <raceCode code="2106-3" codeSystem="2.16.840.1.113883.6.238" codeSystemName="CDCREC" displayName="White"/>
+        <ethnicGroupCode code="N" codeSystem="2.16.840.1.113883.12.189" codeSystemName="HL7" displayName="Not Hispanic or Latino"/>
       </patient>
     </patientRole>
   </recordTarget>
   <author>
-    <time value="20110531130655-0500" />
+    <time value="20110531130655-0500"/>
     <assignedAuthor>
-      <id nullFlavor="NI" />
+      <id nullFlavor="NI"/>
       <addr>
         <streetAddressLine>6756 Florida Avenue</streetAddressLine>
         <city>Oveido</city>
@@ -54,14 +45,14 @@
         <postalCode>32765</postalCode>
         <country>USA</country>
       </addr>
-      <telecom nullFlavor="UNK" />
+      <telecom nullFlavor="UNK"/>
       <assignedAuthoringDevice>
         <softwareName>Seminole County Health Department Lab LIS</softwareName>
       </assignedAuthoringDevice>
       <representedOrganization>
-        <id extension="03D3113113" root="2.16.840.1.113883.4.7" />
+        <id extension="03D3113113" root="2.16.840.1.113883.4.7"/>
         <name>Seminole County Health Department Laboratory</name>
-        <telecom nullFlavor="UNK" />
+        <telecom nullFlavor="UNK"/>
         <addr>
           <streetAddressLine>6756 Florida Avenue</streetAddressLine>
           <city>Oveido</city>
@@ -75,9 +66,9 @@
   <custodian typeCode="CST">
     <assignedCustodian classCode="ASSIGNED">
       <representedCustodianOrganization>
-        <id extension="03D3113113" root="2.16.840.1.113883.4.7" />
+        <id extension="03D3113113" root="2.16.840.1.113883.4.7"/>
         <name>Seminole County Health Department Laboratory</name>
-        <telecom nullFlavor="UNK" />
+        <telecom nullFlavor="UNK"/>
         <addr>
           <streetAddressLine>6756 Florida Avenue</streetAddressLine>
           <city>Oveido</city>
@@ -89,16 +80,16 @@
     </assignedCustodian>
   </custodian>
   <informationRecipient>
-    <templateId root="1.3.6.1.4.1.19376.1.3.3.1.4" />
+    <templateId root="1.3.6.1.4.1.19376.1.3.3.1.4"/>
     <intendedRecipient>
-      <id extension="0000" root="1.3.6.1.4.1.19376.1.3.4" />
+      <id extension="0000" root="1.3.6.1.4.1.19376.1.3.4"/>
       <addr>
         <streetAddressLine>1600 Clifton Road</streetAddressLine>
         <city>Atlanta</city>
         <state>GA</state>
         <postalCode>30333</postalCode>
       </addr>
-      <telecom value="tel:404-639-3535" />
+      <telecom value="tel:404-639-3535"/>
       <informationRecipient>
         <name>
           <family>Angulo</family>
@@ -106,9 +97,9 @@
         </name>
       </informationRecipient>
       <receivedOrganization>
-        <id extension="0000" root="1.3.6.1.4.1.19376.1.3.4" />
+        <id extension="0000" root="1.3.6.1.4.1.19376.1.3.4"/>
         <name>ELR</name>
-        <telecom value="tel:404-639-3535" />
+        <telecom value="tel:404-639-3535"/>
         <addr>
           <streetAddressLine>1600 Clifton Road</streetAddressLine>
           <city>Atlanta</city>
@@ -119,10 +110,10 @@
     </intendedRecipient>
   </informationRecipient>
   <legalAuthenticator>
-    <time value="20110531130655-0500" />
-    <signatureCode code="S" />
+    <time value="20110531130655-0500"/>
+    <signatureCode code="S"/>
     <assignedEntity>
-      <id extension="10092" root="2.16.840.1.113883.3.72.5.30.1" />
+      <id extension="10092" root="2.16.840.1.113883.3.72.5.30.1"/>
       <addr>
         <streetAddressLine>6756 Florida Avenue</streetAddressLine>
         <city>Oveido</city>
@@ -130,7 +121,7 @@
         <postalCode>32765</postalCode>
         <country>USA</country>
       </addr>
-      <telecom nullFlavor="UNK" />
+      <telecom nullFlavor="UNK"/>
       <assignedPerson>
         <name>
           <family>Pafford</family>
@@ -138,9 +129,9 @@
         </name>
       </assignedPerson>
       <representedOrganization>
-        <id extension="03D3113113" root="2.16.840.1.113883.4.7" />
+        <id extension="03D3113113" root="2.16.840.1.113883.4.7"/>
         <name>Seminole County Health Department Laboratory</name>
-        <telecom nullFlavor="UNK" />
+        <telecom nullFlavor="UNK"/>
         <addr>
           <streetAddressLine>6756 Florida Avenue</streetAddressLine>
           <city>Oveido</city>
@@ -152,11 +143,11 @@
     </assignedEntity>
   </legalAuthenticator>
   <authenticator>
-    <templateId root="1.3.6.1.4.1.19376.1.3.3.1.5" />
-    <time value="20110531130655-0500" />
-    <signatureCode code="S" />
+    <templateId root="1.3.6.1.4.1.19376.1.3.3.1.5"/>
+    <time value="20110531130655-0500"/>
+    <signatureCode code="S"/>
     <assignedEntity>
-      <id extension="10092" root="2.16.840.1.113883.3.72.5.30.1" />
+      <id extension="10092" root="2.16.840.1.113883.3.72.5.30.1"/>
       <addr>
         <streetAddressLine>6756 Florida Avenue</streetAddressLine>
         <city>Oveido</city>
@@ -164,7 +155,7 @@
         <postalCode>32765</postalCode>
         <country>USA</country>
       </addr>
-      <telecom nullFlavor="UNK" />
+      <telecom nullFlavor="UNK"/>
       <assignedPerson>
         <name>
           <family>Pafford</family>
@@ -172,9 +163,9 @@
         </name>
       </assignedPerson>
       <representedOrganization>
-        <id extension="03D3113113" root="2.16.840.1.113883.4.7" />
+        <id extension="03D3113113" root="2.16.840.1.113883.4.7"/>
         <name>Seminole County Health Department Laboratory</name>
-        <telecom nullFlavor="UNK" />
+        <telecom nullFlavor="UNK"/>
         <addr>
           <streetAddressLine>6756 Florida Avenue</streetAddressLine>
           <city>Oveido</city>
@@ -186,32 +177,32 @@
     </assignedEntity>
   </authenticator>
   <participant typeCode="REF">
-    <templateId root="1.3.6.1.4.1.19376.1.3.3.1.6" />
+    <templateId root="1.3.6.1.4.1.19376.1.3.3.1.6"/>
     <time>
-      <low value="20110528" />
-      <high value="20110531130655-0500" />
+      <low value="20110528"/>
+      <high value="20110531130655-0500"/>
     </time>
     <associatedEntity classCode="PROV">
-      <id extension="57422" root="2.16.840.1.113883.3.72.5.30.1" />
+      <id extension="57422" root="2.16.840.1.113883.3.72.5.30.1"/>
       <addr>
-        <streetAddressLine>555 Orange Ave</streetAddressLine>
-        <city>Oveido</city>
-        <state>FL</state>
-        <postalCode>32765</postalCode>
-        <country>USA</country>
+        555 Orange Ave
+        Oveido
+        FL
+        32765
+        USA
       </addr>
-      <telecom value="tel:407-2341212" />
+      <telecom value="tel:407-2341212"/>
       <associatedPerson>
         <name>
-          <family>RADON</family>
-          <given>NICHOLAS</given>
-          <prefix>Dr.</prefix>
+          RADON
+          NICHOLAS
+          Dr.
         </name>
       </associatedPerson>
       <scopingOrganization>
-        <id nullFlavor="NI" />
+        <id nullFlavor="NI"/>
         <name>Seminole County Health Clinic</name>
-        <telecom value="tel:813-8847284" />
+        <telecom value="tel:813-8847284"/>
         <addr>
           <streetAddressLine>555 Orange Ave</streetAddressLine>
           <city>Oveido</city>
@@ -224,7 +215,7 @@
   </participant>
   <inFulfillmentOf>
     <order>
-      <id extension="ORD723222-4" root="2.16.840.1.113883.3.56.1.90" />
+      <id extension="ORD723222-4" root="2.16.840.1.113883.3.56.1.90"/>
     </order>
   </inFulfillmentOf>
   <documentationOf>
@@ -232,26 +223,25 @@
       <!--This
       entry is ONLY used,when sending a preliminary report, otherwise this entire entry is dropped
       out. This currently causes an issue when trying to render with the standard CDA stylesheet.-->
-      <code code="18725-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
-        displayName="MICROBIOLOGY STUDIES" />
-      <lab:statusCode code="active" />
+      <code code="18725-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="MICROBIOLOGY STUDIES"/>
+      <lab:statusCode code="active"/>
 
       <effectiveTime>
-        <low value="20110528" />
-        <high value="20110531130655-0500" />
+        <low value="20110528"/>
+        <high value="20110531130655-0500"/>
       </effectiveTime>
     </serviceEvent>
   </documentationOf>
   <documentationOf>
     <serviceEvent>
       <performer typeCode="PRF">
-        <templateId root="1.3.6.1.4.1.19376.1.3.3.1.7" />
+        <templateId root="1.3.6.1.4.1.19376.1.3.3.1.7"/>
         <time>
-          <low value="20110528" />
-          <high value="20110531130655-0500" />
+          <low value="20110528"/>
+          <high value="20110531130655-0500"/>
         </time>
         <assignedEntity>
-          <id extension="10092" root="2.16.840.1.113883.3.72.5.30.1" />
+          <id extension="10092" root="2.16.840.1.113883.3.72.5.30.1"/>
           <addr>
             <streetAddressLine>6756 Florida Avenue</streetAddressLine>
             <city>Oveido</city>
@@ -259,7 +249,7 @@
             <postalCode>32765</postalCode>
             <country>USA</country>
           </addr>
-          <telecom nullFlavor="UNK" />
+          <telecom nullFlavor="UNK"/>
           <assignedPerson>
             <name>
               <family>Pafford</family>
@@ -267,9 +257,9 @@
             </name>
           </assignedPerson>
           <representedOrganization>
-            <id extension="03D3113113" root="2.16.840.1.113883.4.7" />
+            <id extension="03D3113113" root="2.16.840.1.113883.4.7"/>
             <name>Seminole County Health Department Laboratory</name>
-            <telecom nullFlavor="UNK" />
+            <telecom nullFlavor="UNK"/>
             <addr>
               <streetAddressLine>6756 Florida Avenue</streetAddressLine>
               <city>Oveido</city>
@@ -286,35 +276,34 @@
     <structuredBody classCode="DOCBODY" moodCode="EVN">
       <component typeCode="COMP">
         <section classCode="DOCSECT">
-          <templateId root="1.3.6.1.4.1.19376.1.3.3.2.1" />
-          <code code="18725-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
-            displayName="MICROBIOLOGY STUDIES" />
+          <templateId root="1.3.6.1.4.1.19376.1.3.3.2.1"/>
+          <code code="18725-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="MICROBIOLOGY STUDIES"/>
           <title>Laboratory Report</title>
           <text>
             <paragraph styleCode="Bold">SPECIMEN</paragraph>
-            <br />
+            <br/>
             <list>
               <item>Lab order type: Microbiology Studies</item>
               <item>StatusCode: Preliminary</item>
             </list>
-            <br />
+            <br/>
             <paragraph styleCode="Bold">Specimen Procedure</paragraph>
-            <br />
+            <br/>
             <list>
               <item>Collection Time: 05/28/2011</item>
               <item>Specimen Type: Stool specimen</item>
             </list>
-            <br />
+            <br/>
             <paragraph styleCode="Bold">Laboratory Result</paragraph>
-            <br />
+            <br/>
             <table ID="labreport_1">
               <colgroup>
-                <col width="25%" />
-                <col width="15%" />
-                <col width="15%" />
-                <col width="15%" />
-                <col width="15%" />
-                <col width="15%" />
+                <col width="25%"/>
+                <col width="15%"/>
+                <col width="15%"/>
+                <col width="15%"/>
+                <col width="15%"/>
+                <col width="15%"/>
               </colgroup>
               <thead>
                 <tr>
@@ -337,112 +326,99 @@
             </list>
           </text>
           <entry typeCode="DRIV">
-            <templateId root="1.3.6.1.4.1.19376.1.3.1" />
+            <templateId root="1.3.6.1.4.1.19376.1.3.1"/>
             <act classCode="ACT" moodCode="EVN">
-              <code code="18725-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
-                displayName="Microbiology Studies" />
+              <code code="18725-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Microbiology Studies"/>
               <!--Only
               in a preliminary report is this status code "active", otherwise it can be set to
               "completed" for a final report or "aborted" for a canceled order.-->
-              <statusCode code="active" />
+              <statusCode code="active"/>
               <entryRelationship typeCode="COMP">
                 <procedure classCode="PROC" moodCode="EVN">
-                  <templateId root="1.3.6.1.4.1.19376.1.3.1.2" />
-                  <code code="33882-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
-                    displayName="Collection Time" />
-                  <effectiveTime value="20110528" />
+                  <templateId root="1.3.6.1.4.1.19376.1.3.1.2"/>
+                  <code code="33882-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Collection Time"/>
+                  <effectiveTime value="20110528"/>
                   <participant typeCode="PRD">
                     <participantRole classCode="SPEC">
-                      <id extension="ORD723222-4" root="2.16.840.1.113883.3.72.5.24" />
+                      <id extension="ORD723222-4" root="2.16.840.1.113883.3.72.5.24"/>
                       <playingEntity classCode="ENT">
-                        <code code="119339001" codeSystem="2.16.840.1.113883.6.96"
-                          codeSystemName="SNOMED-CT" displayName="Stool specimen" />
+                        <code code="119339001" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED-CT" displayName="Stool specimen"/>
                       </playingEntity>
                     </participantRole>
                   </participant>
                   <entryRelationship typeCode="COMP">
                     <act classCode="ACT" moodCode="EVN">
-                      <templateId root="1.3.6.1.4.1.19376.1.3.1.3" />
-                      <code code="SPRECEIVE" codeSystem="1.3.5.1.4.1.19376.1.5.3.2"
-                        codeSystemName="IHEActCode" displayName="Receive Time" />
-                      <effectiveTime value="20110529" />
+                      <templateId root="1.3.6.1.4.1.19376.1.3.1.3"/>
+                      <code code="SPRECEIVE" codeSystem="1.3.5.1.4.1.19376.1.5.3.2" codeSystemName="IHEActCode" displayName="Receive Time"/>
+                      <effectiveTime value="20110529"/>
                     </act>
                   </entryRelationship>
                 </procedure>
               </entryRelationship>
               <entryRelationship typeCode="COMP">
                 <organizer classCode="CLUSTER" moodCode="EVN">
-                  <templateId root="1.3.6.1.4.1.19376.1.3.1.1" />
-                  <statusCode code="completed" />
+                  <templateId root="1.3.6.1.4.1.19376.1.3.1.1"/>
+                  <statusCode code="completed"/>
                   <component typeCode="COMP">
                     <observation classCode="COND" moodCode="EVN">
-                      <templateId root="1.3.6.1.4.1.19376.1.3.1.1.1" />
-                      <code code="170516003" codeSystem="2.16.840.1.113883.6.96"
-                        codeSystemName="SNOMED-CT" displayName="Notification of Disease">
+                      <templateId root="1.3.6.1.4.1.19376.1.3.1.1.1"/>
+                      <code code="170516003" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED-CT" displayName="Notification of Disease">
                         <qualifier>
-                          <name code="105590001" codeSystem="2.16.840.1.113883.6.96"
-                            codeSystemName="SNOMED-CT" displayName="Substance" />
-                          <value code="116154003" codeSystem="2.16.840.1.113883.6.96"
-                            codeSystemName="SNOMED-CT" displayName=" Patient" />
+                          <name code="105590001" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED-CT" displayName="Substance"/>
+                          <value code="116154003" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED-CT" displayName=" Patient"/>
                         </qualifier>
                       </code>
-                      <statusCode code="completed" />
-                      <value xsi:type="CE" code="85729005" codeSystem="2.16.840.1.113883.6.96"
-                        displayName="Shigella flexneri" />
+                      <statusCode code="completed"/>
+                      <value xsi:type="CE" code="85729005" codeSystem="2.16.840.1.113883.6.96" displayName="Shigella flexneri"/>
                     </observation>
                   </component>
                 </organizer>
               </entryRelationship>
               <entryRelationship typeCode="COMP">
                 <organizer classCode="CLUSTER" moodCode="EVN">
-                  <templateId root="1.3.6.1.4.1.19376.1.3.1.5" />
-                  <statusCode code="completed" />
-                  <effectiveTime value="20110528" />
+                  <templateId root="1.3.6.1.4.1.19376.1.3.1.5"/>
+                  <statusCode code="completed"/>
+                  <effectiveTime value="20110528"/>
                   <specimen typeCode="SPC">
                     <specimenRole classCode="SPEC">
-                      <id extension="ORD723222-4" root="2.16.840.1.113883.3.72.5.24" />
+                      <id extension="ORD723222-4" root="2.16.840.1.113883.3.72.5.24"/>
                       <specimenPlayingEntity classCode="MIC">
-                        <code code="85729005" codeSystem="2.16.840.1.113883.6.96"
-                          displayName="Shigella flexneri" />
+                        <code code="85729005" codeSystem="2.16.840.1.113883.6.96" displayName="Shigella flexneri"/>
                       </specimenPlayingEntity>
                     </specimenRole>
                   </specimen>
                   <component typeCode="COMP">
                     <organizer classCode="BATTERY" moodCode="EVN">
-                      <templateId root="1.3.6.1.4.1.19376.1.3.1.4" />
-                      <id extension="R-783274-4" root="2.16.840.1.113883.3.72.5.25" />
-                      <code code="625-4" codeSystem="2.16.840.1.113883.6.1"
-                        displayName="Bacteria identified in Stool by Culture">
+                      <templateId root="1.3.6.1.4.1.19376.1.3.1.4"/>
+                      <id extension="R-783274-4" root="2.16.840.1.113883.3.72.5.25"/>
+                      <code code="625-4" codeSystem="2.16.840.1.113883.6.1" displayName="Bacteria identified in Stool by Culture">
                         <originalText>
-                          <reference value="#test1" />
+                          <reference value="#test1"/>
                         </originalText>
                       </code>
-                      <statusCode code="completed" />
-                      <effectiveTime value="20110528" />
+                      <statusCode code="completed"/>
+                      <effectiveTime value="20110528"/>
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
-                          <templateId root="1.3.6.1.4.1.19376.1.3.1.6" />
-                          <id nullFlavor="NI" />
-                          <code code="625-4" codeSystem="2.16.840.1.113883.6.1"
-                            displayName="Bacteria identified in Stool by Culture">
+                          <templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
+                          <id nullFlavor="NI"/>
+                          <code code="625-4" codeSystem="2.16.840.1.113883.6.1" displayName="Bacteria identified in Stool by Culture">
                             <originalText>
-                              <reference value="#test1" />
+                              <reference value="#test1"/>
                             </originalText>
                           </code>
-                          <statusCode code="completed" />
-                          <effectiveTime value="20110528" />
-                          <value xsi:type="CE" code="85729005" codeSystem="2.16.840.1.113883.6.96"
-                            displayName="Shigella flexneri" />
+                          <statusCode code="completed"/>
+                          <effectiveTime value="20110528"/>
+                          <value xsi:type="CE" code="85729005" codeSystem="2.16.840.1.113883.6.96" displayName="Shigella flexneri"/>
                           <entryRelationship typeCode="COMP">
                             <act classCode="ACT" moodCode="EVN">
-                              <templateId root="2.16.840.1.113883.10.20.1.40" />
-                              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.2" />
-                              <code code="48767-8" codeSystem="2.16.840.1.113883.6.1"
-                                codeSystemName="LOINC" displayName="Annotation Comment" />
+                              <templateId root="2.16.840.1.113883.10.20.1.40"/>
+                              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.2"/>
+                              <code code="48767-8" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Annotation Comment"/>
                               <text>
-                                <reference value="#NTE1" />
+                                <reference value="#NTE1"/>
                               </text>
-                              <statusCode code="completed" />
+                              <statusCode code="completed"/>
                             </act>
                           </entryRelationship>
                         </observation>

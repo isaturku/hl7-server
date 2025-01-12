@@ -32,10 +32,12 @@ func (s *Server) GetDocIds(w http.ResponseWriter, r *http.Request) {
 		panic(err)
 	}
 	docMap := map[string]string{}
+	type id struct {
+		Root string `xml:"root,attr"`
+	}
 	type Document struct {
-		XMLName   xml.Name `xml:"ClinicalDocument"`
-		FirstName string   `xml:"recordTarget>patientRole>patient>name>given"`
-		LastName  string   `xml:"recordTarget>patientRole>patient>name>family"`
+		XMLName xml.Name `xml:"ClinicalDocument"`
+		ID      id       `xml:"id"`
 	}
 	for _, file := range files {
 		doc := Document{}
@@ -55,7 +57,7 @@ func (s *Server) GetDocIds(w http.ResponseWriter, r *http.Request) {
 			w.Write([]byte("Internal Server Error"))
 			panic(err)
 		}
-		docMap[file.Name()] = doc.FirstName + " " + doc.LastName
+		docMap[file.Name()] = doc.ID.Root
 	}
 	w.WriteHeader(http.StatusOK)
 	w.Header().Set("Content-Type", "application/json")
